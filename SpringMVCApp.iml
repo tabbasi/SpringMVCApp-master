@@ -19,7 +19,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="defaultPersistenceUnit" />
+          <factory-entry name="defaultPersistenceUnit" value="2f566196-00c5-454d-80aa-39c037ab4acc" />
         </datasource-mapping>
       </configuration>
     </facet>
