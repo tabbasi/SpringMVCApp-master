@@ -18,6 +18,29 @@ public class GroupsEntity {
     private Serializable location;
     private String city;
 
+    @Basic
+    @Column(name = "locationLong")
+    public float getLocationLong() {
+        return locationLong;
+    }
+
+    public void setLocationLong(float locationLong) {
+        this.locationLong = locationLong;
+    }
+
+    @Basic
+    @Column(name = "locationLat")
+    public float getLocationLat() {
+        return locationLat;
+    }
+
+    public void setLocationLat(float locationLat) {
+        this.locationLat = locationLat;
+    }
+
+    private float locationLat;
+    private float locationLong;
+
     @Id
     @Column(name = "Id")
     public int getId() {
@@ -69,7 +92,7 @@ public class GroupsEntity {
     }
 
     @Basic
-    @Column(name = "Location")
+    @Column(name = "LocationLat")
     public Serializable getLocation() {
         return location;
     }
