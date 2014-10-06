@@ -723,17 +723,6 @@
       <column name="CHARACTER_SET_CLIENT" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="COLLATION_CONNECTION" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
     </table>
-    <table name="Account" schema="" catalog="mydb" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="Name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Email" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Password" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Verified" sqlType="BIT" precision="1" scale="0" nullable="true" jdbcType="-7"/>
-      <column name="RecognitionValue" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="Users_ID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="fk_Account_Users1" columns="ID" ref-table="Users" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-    </table>
     <table name="Activity" schema="" catalog="mydb" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="ActivityTypeID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -781,8 +770,8 @@
       <column name="userID" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
-      <foreign-key name="Id" columns="ChangeType" ref-table="EventChangeType" ref-schema="" ref-catalog="mydb" ref-columns="Id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_EventUpdate_Events1" columns="EventID" ref-table="Events" ref-schema="" ref-catalog="mydb" ref-columns="EventID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="Id" columns="ChangeType" ref-table="EventChangeType" ref-schema="" ref-catalog="mydb" ref-columns="Id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="EventUpdateID" table="Notifications" schema="" catalog="mydb" columns="EventUpdateID"/>
       <index name="fk_EventUpdate_Events1_idx" unique="false" columns="EventID"/>
       <index name="Id_idx" unique="false" columns="ChangeType"/>
@@ -819,15 +808,16 @@
       <column name="CoverPhoto" sqlType="BLOB" precision="65535" scale="0" nullable="true" jdbcType="-4"/>
       <column name="isClosed" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
       <column name="Description" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Location" sqlType="POINT" precision="0" scale="0" nullable="true" jdbcType="1111"/>
+      <column name="LocationLat" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
       <column name="City" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <column name="CapID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="ProvinceID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="CreatorID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="LocationLong" sqlType="FLOAT" precision="12" scale="0" nullable="false" jdbcType="7"/>
       <primary-key name="PRIMARY" columns="Id"/>
-      <foreign-key name="fk_Groups_Users1" columns="CreatorID" ref-table="Users" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_Groups_Province1" columns="ProvinceID" ref-table="Province" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_Groups_Cap1" columns="CapID" ref-table="Cap" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Groups_Province1" columns="ProvinceID" ref-table="Province" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Groups_Users1" columns="CreatorID" ref-table="Users" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk_GroupMembers_Groups1" table="GroupMembers" schema="" catalog="mydb" columns="GroupID"/>
       <exported-key name="fk_GroupsIntersts_Groups1" table="GroupsIntersts" schema="" catalog="mydb" columns="GroupID"/>
       <index name="fk_Groups_Cap1_idx" unique="false" columns="CapID"/>
@@ -877,8 +867,8 @@
       <column name="UserIntroductionID" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="EventUpdateID" columns="EventUpdateID" ref-table="EventUpdate" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_Notifications_Invitation1" columns="InvitationID" ref-table="Invitation" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_Notifications_IndividualAcceptance1" columns="IndividualAcceptanceID" ref-table="IndividualAcceptance" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_Notifications_Invitation1" columns="InvitationID" ref-table="Invitation" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_Notifications_UserIntroduction1" columns="UserIntroductionID" ref-table="UserIntroduction" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_Notifications_Users1" columns="UserID" ref-table="Users" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="EventUpdateID_idx" unique="false" columns="EventUpdateID"/>
@@ -947,9 +937,8 @@
       <column name="Location" sqlType="POINT" precision="0" scale="0" nullable="true" jdbcType="1111"/>
       <primary-key name="PRIMARY" columns="ID"/>
       <foreign-key name="fk_Users_Cap1" columns="CapId" ref-table="Cap" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="fk_Users_Province1" columns="ProvinceID" ref-table="Province" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_Users_Country1" columns="Nationality" ref-table="Country" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="fk_Account_Users1" table="Account" schema="" catalog="mydb" columns="ID"/>
+      <foreign-key name="fk_Users_Province1" columns="ProvinceID" ref-table="Province" ref-schema="" ref-catalog="mydb" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk_Activity_Users1" table="Activity" schema="" catalog="mydb" columns="CreatorID"/>
       <exported-key name="fk_ActivityParticipants_Users1" table="ActivityParticipants" schema="" catalog="mydb" columns="ParticipantID"/>
       <exported-key name="fk_Events_Users1" table="Events" schema="" catalog="mydb" columns="UserID"/>
@@ -2214,13 +2203,6 @@
       <column name="USER" sqlType="CHAR" precision="16" scale="0" nullable="true" jdbcType="1"/>
       <column name="CURRENT_CONNECTIONS" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="TOTAL_CONNECTIONS" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
-    </table>
-    <table name="account" schema="" catalog="socialwebportal" type="TABLE">
-      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
-      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="firstName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="lastName" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id"/>
     </table>
   </data-source>
 </component>
