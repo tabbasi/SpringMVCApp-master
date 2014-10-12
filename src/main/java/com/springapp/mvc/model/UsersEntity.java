@@ -1,9 +1,10 @@
 package com.springapp.mvc.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by tabbasi on 29/08/14.
+ * Created by tabbasi on 20/09/14.
  */
 @Entity
 @Table(name = "Users", schema = "", catalog = "mydb")
@@ -18,8 +19,7 @@ public class UsersEntity {
     private Integer phone;
     private String adVia;
     private String adCiv;
-    private String location;
-
+    private Serializable location;
 
     @Id
     @Column(name = "ID")
@@ -123,11 +123,11 @@ public class UsersEntity {
 
     @Basic
     @Column(name = "Location")
-    public String getLocation() {
+    public Serializable getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Serializable location) {
         this.location = location;
     }
 

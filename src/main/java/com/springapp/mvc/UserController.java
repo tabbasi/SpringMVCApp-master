@@ -1,6 +1,6 @@
 package com.springapp.mvc;
 
-import com.springapp.mvc.model.profiles.UsersEntity;
+import com.springapp.mvc.model.UsersEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
+
     @Autowired
     private UserRepository userRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
+      public String listUsers(ModelMap model) {
         model.addAttribute("user", new UsersEntity());
         model.addAttribute("users", userRepository.findAll());
         return "users";
