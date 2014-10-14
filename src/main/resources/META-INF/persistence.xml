@@ -13,6 +13,13 @@
         <class>com.springapp.mvc.model.events.EventsEntity</class>
         <class>com.springapp.mvc.model.eventsupdate.EventUpdateEntity</class>
         <class>com.springapp.mvc.model.groupmembers.GroupMembersEntity</class>
+        <class>com.springapp.mvc.model.groupsinterests.GroupsInterstsEntity</class>
+        <class>com.springapp.mvc.model.individualacceptance.IndividualAcceptanceEntity</class>
+        <class>com.springapp.mvc.model.interests.InterestsEntity</class>
+        <class>com.springapp.mvc.model.invitations.InvitationEntity</class>
+        <class>com.springapp.mvc.model.notifications.NotificationsEntity</class>
+        <class>com.springapp.mvc.model.province.ProvinceEntity</class>
+        <class>com.springapp.mvc.model.specialrequirments.SpecialRequirementsEntity</class>
         <properties>
             <!--<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />-->
             <!--<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:spring" />-->
