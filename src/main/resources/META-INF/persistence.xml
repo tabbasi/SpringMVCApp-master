@@ -7,6 +7,12 @@
         <class>com.springapp.mvc.model.address.CapEntity</class>
         <class>com.springapp.mvc.model.country.CountryEntity</class>
         <class>com.springapp.mvc.model.eventChangetype.EventChangeTypeEntity</class>
+        <class>com.springapp.mvc.model.invitation.InvitationEntity</class>
+        <class>com.springapp.mvc.model.activity.ActivityEntity</class>
+        <class>com.springapp.mvc.model.activityParticipents.ActivityParticipantsEntity</class>
+        <class>com.springapp.mvc.model.events.EventsEntity</class>
+        <class>com.springapp.mvc.model.eventsupdate.EventUpdateEntity</class>
+        <class>com.springapp.mvc.model.groupmembers.GroupMembersEntity</class>
         <properties>
             <!--<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />-->
             <!--<property name="hibernate.connection.url" value="jdbc:hsqldb:mem:spring" />-->
